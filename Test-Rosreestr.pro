@@ -10,22 +10,26 @@ CONFIG += c++17
 
 SOURCES += \
     VesselClasses/abstractvessel.cpp \
+    decimallineedit.cpp \
     main.cpp \
     mainwidget.cpp \
     VesselClasses/CustomVesselClasses/opendeckvessel.cpp \
     VesselClasses/CustomVesselClasses/regularvessel.cpp \
     VesselClasses/CustomVesselClasses/technicalfleetvessel.cpp \
     VesselClasses/CustomVesselClasses/unusualdesignvessel.cpp \
-    VesselClasses/CustomVesselClasses/unusualpurposevessel.cpp
+    VesselClasses/CustomVesselClasses/unusualpurposevessel.cpp \
+    vesselformlayout.cpp
 
 HEADERS += \
     VesselClasses/abstractvessel.h \
+    decimallineedit.h \
     mainwidget.h \
     VesselClasses/CustomVesselClasses/opendeckvessel.h \
     VesselClasses/CustomVesselClasses/regularvessel.h \
     VesselClasses/CustomVesselClasses/technicalfleetvessel.h \
     VesselClasses/CustomVesselClasses/unusualdesignvessel.h \
-    VesselClasses/CustomVesselClasses/unusualpurposevessel.h
+    VesselClasses/CustomVesselClasses/unusualpurposevessel.h \
+    vesselformlayout.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
