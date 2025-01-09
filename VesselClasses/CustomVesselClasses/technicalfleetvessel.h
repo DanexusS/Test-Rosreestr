@@ -1,7 +1,7 @@
 #ifndef TECHNICALFLEETVESSEL_H
 #define TECHNICALFLEETVESSEL_H
 
-#include "abstractvessel.h"
+#include "../abstractvessel.h"
 
 class TechnicalFleetVessel : public AbstractVessel
 {

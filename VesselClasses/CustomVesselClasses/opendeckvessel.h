@@ -1,7 +1,7 @@
 #ifndef OPENDECKVESSEL_H
 #define OPENDECKVESSEL_H
 
-#include "abstractvessel.h"
+#include "../abstractvessel.h"
 
 class OpenDeckVessel : public AbstractVessel
 {

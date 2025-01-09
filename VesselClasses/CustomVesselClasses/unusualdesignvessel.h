@@ -1,7 +1,7 @@
 #ifndef UNUSUALDESIGNVESSEL_H
 #define UNUSUALDESIGNVESSEL_H
 
-#include "abstractvessel.h"
+#include "../abstractvessel.h"
 
 class UnusualDesignVessel : public AbstractVessel
 {

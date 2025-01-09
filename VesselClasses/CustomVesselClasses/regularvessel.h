@@ -1,7 +1,7 @@
 #ifndef REGULARVESSEL_H
 #define REGULARVESSEL_H
 
-#include "abstractvessel.h"
+#include "../abstractvessel.h"
 
 class RegularVessel : public AbstractVessel
 {

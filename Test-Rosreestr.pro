@@ -9,23 +9,23 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    abstractvessel.cpp \
+    VesselClasses/abstractvessel.cpp \
     main.cpp \
     mainwidget.cpp \
-    opendeckvessel.cpp \
-    regularvessel.cpp \
-    technicalfleetvessel.cpp \
-    unusualdesignvessel.cpp \
-    unusualpurposevessel.cpp
+    VesselClasses/CustomVesselClasses/opendeckvessel.cpp \
+    VesselClasses/CustomVesselClasses/regularvessel.cpp \
+    VesselClasses/CustomVesselClasses/technicalfleetvessel.cpp \
+    VesselClasses/CustomVesselClasses/unusualdesignvessel.cpp \
+    VesselClasses/CustomVesselClasses/unusualpurposevessel.cpp
 
 HEADERS += \
-    abstractvessel.h \
+    VesselClasses/abstractvessel.h \
     mainwidget.h \
-    opendeckvessel.h \
-    regularvessel.h \
-    technicalfleetvessel.h \
-    unusualdesignvessel.h \
-    unusualpurposevessel.h
+    VesselClasses/CustomVesselClasses/opendeckvessel.h \
+    VesselClasses/CustomVesselClasses/regularvessel.h \
+    VesselClasses/CustomVesselClasses/technicalfleetvessel.h \
+    VesselClasses/CustomVesselClasses/unusualdesignvessel.h \
+    VesselClasses/CustomVesselClasses/unusualpurposevessel.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
