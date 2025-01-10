@@ -18,6 +18,7 @@ SOURCES += \
     VesselClasses/CustomVesselClasses/technicalfleetvessel.cpp \
     VesselClasses/CustomVesselClasses/unusualdesignvessel.cpp \
     VesselClasses/CustomVesselClasses/unusualpurposevessel.cpp \
+    resultlabel.cpp \
     vesselformlayout.cpp
 
 HEADERS += \
@@ -29,6 +30,7 @@ HEADERS += \
     VesselClasses/CustomVesselClasses/technicalfleetvessel.h \
     VesselClasses/CustomVesselClasses/unusualdesignvessel.h \
     VesselClasses/CustomVesselClasses/unusualpurposevessel.h \
+    resultlabel.h \
     vesselformlayout.h
 
 # Default rules for deployment.

@@ -3,6 +3,7 @@
 
 #include <QWidget>
 
+#include "resultlabel.h"
 #include "vesselformlayout.h"
 
 class MainWidget : public QWidget
@@ -10,7 +11,11 @@ class MainWidget : public QWidget
     Q_OBJECT
 
 private:
+    ResultLabel* checkResult;
     VesselFormLayout* vesselFormLayout;
+
+private slots:
+    void validateVesselData();
 
 public:
     MainWidget(QWidget *parent = nullptr);

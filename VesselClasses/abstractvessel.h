@@ -1,27 +1,35 @@
 #ifndef ABSTRACTVESSEL_H
 #define ABSTRACTVESSEL_H
 
-enum VesselType {
-    TechnicalFleet,
-    OpenDeckVessel,
-    UnusualDesignVessel,
-    UnusualPurposeVessel,
-    RegularVessel
+#include <cmath>
+
+/// Тип судна, целочисленные значения каждого типа соответствуют его индексу в списке типов на русском
+enum VesselType : int {
+    TechnicalFleetType = 0,
+    OpenDeckVesselType = 1,
+    UnusualDesignVesselType = 2,
+    UnusualPurposeVesselType = 3,
+    RegularVesselType = 4
 };
 
-enum VesselSwimmingAreaType {
-    Unrestricted,
-    R1,
-    R2,
-    R2_RSN,
-    R2_RSN_4,
-    R2_RSN_5,
-    R3_RSN,
-    R3
+/// Категории районов плавания судна, целочисленные значения каждой категории соответствуют его индексу в списке типов на русском
+enum VesselSwimmingAreaType : int {
+    Unrestricted = 0,
+    R1 = 1,
+    R2 = 2,
+    R2_RSN = 3,
+    R2_RSN_4 = 4,
+    R2_RSN_5 = 5,
+    R3_RSN = 6,
+    R3 = 7
 };
 
 class AbstractVessel
 {
+
+private:
+    float getKCoefficient() {return (m_length <= 100) ? 2.2 : (2.2 - 0.25 * (m_length - 100) / 100); }
+
 protected:
     /// Соответственно длина судна L из Правил.
     float m_length;
@@ -45,7 +53,7 @@ protected:
     /// Функция проверяющая соответствует ли заданное судно критериям, представленным в п. 1.4.1.2 из Правил.
     virtual bool isConstructionMeetingCriteria() = 0;
 
-    float getKCoefficient() {return (m_length <= 100) ? 2.2 : (2.2 - 0.25 * (m_length - 100) / 100); }
+    bool checkSpeed() { return m_specificationSpeed > getKCoefficient() * std::sqrt(this->m_length); }
 
 public:
     AbstractVessel();

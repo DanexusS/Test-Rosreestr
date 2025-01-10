@@ -1,10 +1,11 @@
 #include "opendeckvessel.h"
 
-#include <cmath>
-
 #include <QtLogging>
 
 bool OpenDeckVessel::isMeetingCriteria() {
+    // TODO: Необходимо реализовать логику проверки соответствия пунктам 3.1 и 3.6 из Правил.
+    qWarning("Необходимо реализовать логику проверки соответствия пунктам 3.1 и 3.6 из Правил.");
+
     if (this->m_swimmingAreaType == VesselSwimmingAreaType::Unrestricted && this->m_length >= 90)
     {
         // TODO: Необходимо реализовать проверку соответствия требованиям части XVIII "Дополнительные требования к контейнеровозам и судам, перевозящим грузы преимущественно в контейнерах."
@@ -23,10 +24,8 @@ bool OpenDeckVessel::isConstructionMeetingCriteria() {
     if (!AbstractVessel::isConstructionMeetingCriteria())
         return false;
 
-    if (!this->m_isTransferingCargoInHighTemperature) {
-        float v = this->getKCoefficient() * std::sqrt(this->m_length);
-        return this->m_specificationSpeed > v;
-    }
+    if (!this->m_isTransferingCargoInHighTemperature)
+        return this->checkSpeed();
 
     // TODO: Необходимо реализовать прямой расчет прочности по согласованной методике.
     qWarning("Необходимо реализовать прямой расчет прочности по согласованной методике.");
@@ -34,7 +33,7 @@ bool OpenDeckVessel::isConstructionMeetingCriteria() {
     return true;
 }
 
-OpenDeckVessel::OpenDeckVessel() {}
+OpenDeckVessel::OpenDeckVessel() : AbstractVessel() {}
 
 OpenDeckVessel::OpenDeckVessel(
     float length, float width, float height,
@@ -45,7 +44,7 @@ OpenDeckVessel::OpenDeckVessel(
     AbstractVessel(
         length, width, height,
         overallCompletenessCoefficient, specificationSpeed,
-        VesselType::OpenDeckVessel, swimmingAreaType
+        VesselType::OpenDeckVesselType, swimmingAreaType
     ),
     m_isTransferingCargoInHighTemperature(isTransferingCargoInHighTemperature)
 {}

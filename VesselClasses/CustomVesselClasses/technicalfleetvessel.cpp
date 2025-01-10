@@ -1,7 +1,5 @@
 #include "technicalfleetvessel.h"
 
-#include <cmath>
-
 #include <QtLogging>
 
 bool TechnicalFleetVessel::isMeetingCriteria() {
@@ -15,10 +13,9 @@ bool TechnicalFleetVessel::isMeetingCriteria() {
 }
 
 bool TechnicalFleetVessel::isConstructionMeetingCriteria() {
-    if (!AbstractVessel::isConstructionMeetingCriteria()) return false;
-
-    float v = this->getKCoefficient() * std::sqrt(this->m_length);
-    return this->m_specificationSpeed > v;
+    if (!AbstractVessel::isConstructionMeetingCriteria())
+        return false;
+    return this->checkSpeed();
 }
 
 TechnicalFleetVessel::TechnicalFleetVessel() : AbstractVessel() {}
@@ -31,6 +28,6 @@ TechnicalFleetVessel::TechnicalFleetVessel(
     AbstractVessel(
         length, width, height,
         overallCompletenessCoefficient, specificationSpeed,
-        VesselType::TechnicalFleet, swimmingAreaType
+        VesselType::TechnicalFleetType, swimmingAreaType
     )
 {}
