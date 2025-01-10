@@ -20,6 +20,8 @@ bool AbstractVessel::isMeetingCriteria() {
         return this->m_length >= 60;
 
     }
+
+    return false;
 }
 
 bool AbstractVessel::isConstructionMeetingCriteria() {

@@ -45,7 +45,7 @@ MainWidget::MainWidget(QWidget *parent) : QWidget(parent) {
     this->checkResult = new ResultLabel("Результат проверки на соответствие требованиям.");
 
     this->vesselFormLayout = new VesselFormLayout(vesselTypes, vesselSwimmingAreaTypes);
-    connect(this->vesselFormLayout, &VesselFormLayout::dataChanged, this->checkResult, &this->checkResult->setDefault);
+    connect(this->vesselFormLayout, &VesselFormLayout::dataChanged, this->checkResult, &ResultLabel::setDefault);
 
     QPushButton* checkButton = new QPushButton("Проверить судно", parent);
     connect(checkButton, &QPushButton::clicked, this, &MainWidget::validateVesselData);
@@ -57,6 +57,8 @@ MainWidget::MainWidget(QWidget *parent) : QWidget(parent) {
     main_layout->addLayout(this->vesselFormLayout);
     main_layout->addWidget(checkButton);
     main_layout->addWidget(this->checkResult);
+
+    this->setWindowTitle("Проверка на продольную прочность судна");
 }
 
 MainWidget::~MainWidget() {}
